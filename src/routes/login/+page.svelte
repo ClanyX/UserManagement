@@ -1,19 +1,20 @@
 <script lang="ts">
     let username = "";
     let password = "";
+    let role = "";
     let errorMessage = "";
 
     async function login() {
         const res = await fetch("/api/auth/login", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ username, password }),
+            body: JSON.stringify({ username, password, role }),
         });
 
         const data = await res.json();
 
         if (res.ok) {
-            if (data.role === "admin") {
+            if (data.role === 'admin') {
                 window.location.href = "/admin";
             } else {
                 window.location.href = "/user";
