@@ -5,7 +5,7 @@
     let successMessage = '';
 
     async function register(){
-        const res = await fetch('/api/users/register', {
+        const res = await fetch('/api/auth/register', {
             method: 'POST',
             headers: { 'Constent-Type': 'application/json' },
             body: JSON.stringify({ username, password })

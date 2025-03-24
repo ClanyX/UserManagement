@@ -1,6 +1,7 @@
 <script lang="ts">
     import { page } from "$app/stores";
 
+    //dont work
     let user = $page.data.user;
 
     async function logout() {
