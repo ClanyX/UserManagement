@@ -7,6 +7,7 @@ db.exec(`
         id INTEGER PRIMARY KEY AUTOINCREMENT,
         username TEXT UNIQUE NOT NULL,
         password TEXT NOT NULL,
-        role TEXT CHECK(role IN ('admin', 'user')) DEFAULT 'user'
+        role TEXT CHECK(role IN ('admin', 'user')) DEFAULT 'user',
+        session_id TEXT
     )
 `);

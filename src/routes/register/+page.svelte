@@ -8,7 +8,7 @@
         const res = await fetch('/api/users/register', {
             method: 'POST',
             headers: { 'Constent-Type': 'application/json' },
-            body: JSON.stringify({ username, password, role: 'user' })
+            body: JSON.stringify({ username, password })
         });
 
         const data = await res.json();
