@@ -8,6 +8,5 @@ db.exec(`
         username TEXT UNIQUE NOT NULL,
         password TEXT NOT NULL,
         role TEXT CHECK(role IN ('admin', 'user')) DEFAULT 'user',
-        session_id TEXT
     )
 `);
