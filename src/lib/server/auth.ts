@@ -1,4 +1,5 @@
 import { db } from "./database";
+import bcrypt from "bcrypt";
 
 type User = {
   id: number;
@@ -8,9 +9,11 @@ type User = {
 };
 
 export async function loginUser(username: string, password: string){
-    const user = db.prepare("SELECT * FROM users WHERE username = ? AND password = ?").get(username, password) as User | undefined;
+    const user = db.prepare("SELECT * FROM users WHERE username = ?").get(username) as User | undefined;
 
-    if(!user) return null;
+    console.log(password, user?.password);
+
+    if(!user || !bcrypt.compareSync(password, user.password)) return null;
 
     return user;
 }
