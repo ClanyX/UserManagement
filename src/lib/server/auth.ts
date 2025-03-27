@@ -11,8 +11,6 @@ type User = {
 export async function loginUser(username: string, password: string){
     const user = db.prepare("SELECT * FROM users WHERE username = ?").get(username) as User | undefined;
 
-    console.log(password, user?.password);
-
     if(!user || !bcrypt.compareSync(password, user.password)) return null;
 
     return user;
