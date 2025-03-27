@@ -43,3 +43,4 @@
         <p style="color: green;">{successMessage}</p>
     {/if}
 </form>
+<button on:click={() => window.location.href = '/'}>Home</button>

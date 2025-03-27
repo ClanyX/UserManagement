@@ -13,7 +13,7 @@
         const data = await res.json();
 
         if (res.ok) {
-            if (data.role === 'admin') {
+            if (data.session.role === 'admin') {
                 window.location.href = "/admin";
             } else {
                 window.location.href = "/user";
@@ -32,3 +32,4 @@
         <p style="color: red;">{errorMessage}</p>
     {/if}
 </form>
+<button on:click={() => window.location.href = '/'}>Home</button>
