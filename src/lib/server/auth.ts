@@ -8,9 +8,9 @@ type User = {
 };
 
 export async function loginUser(username: string, password: string){
-    const user = db.prepare("SELECT * FROM users WHERE username = ?").get(username) as User | undefined;
+    const user = db.prepare("SELECT * FROM users WHERE username = ? AND password = ?").get(username, password) as User | undefined;
 
-    if(!user || password !== user.password) return null;
+    if(!user) return null;
 
     return user;
 }
